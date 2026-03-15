@@ -1,0 +1,117 @@
+/* ==========================================================================
+   ANIMATIONS - Keyframes and animation utilities
+   
+   Animation classes are applied by /js/animations.js via IntersectionObserver.
+   Elements start invisible, gain .is-visible when entering the viewport.
+   Once triggered, animations do NOT repeat (observer disconnects from element).
+   ========================================================================== */
+
+/* ─── Page Enter Transition ─────────────────────────────────────────────── */
+/* Runs on every page load for a smooth cross-page feel */
+.page-content {
+  animation: pageEnter 0.35s ease forwards;
+}
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Page-leave class added by JS before navigating away */
+.page-leaving {
+  animation: pageLeave 0.2s ease forwards;
+}
+
+@keyframes pageLeave {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-8px); }
+}
+
+/* ─── Scroll-triggered Animations ──────────────────────────────────────── */
+/* 
+  Usage: Add data-animate="fade-up" (or fade-in / fade-left) to any element.
+  The IntersectionObserver in js/animations.js will add .is-visible when 
+  the element enters the viewport, triggering the transition below.
+  
+  For sequential animations, add data-animate-delay="100" (ms).
+*/
+
+[data-animate] {
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+[data-animate="fade-up"]   { transform: translateY(24px); }
+[data-animate="fade-in"]   { transform: translateY(0); }
+[data-animate="fade-left"] { transform: translateX(24px); }
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translate(0, 0) !important;
+}
+
+/* ─── Experience Sequence Animations ───────────────────────────────────── */
+/*
+  Experience items use a finer-grained system:
+  Each [data-seq] element within a company card fades in sequentially.
+  The JS in pages/experience.js drives the timing.
+*/
+
+[data-seq] {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+[data-seq].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Modal Animations ──────────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.92) translateY(16px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes modalOut {
+  from { opacity: 1; transform: scale(1) translateY(0); }
+  to   { opacity: 0; transform: scale(0.94) translateY(8px); }
+}
+
+.modal-closing .project-modal-backdrop { animation: fadeOut 0.2s ease forwards; }
+.modal-closing .project-modal          { animation: modalOut 0.2s ease forwards; }
+
+/* ─── Skeleton Shimmer ──────────────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ─── Hover Micro-interactions ──────────────────────────────────────────── */
+.lift {
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.lift:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+}
+
+/* ─── Pulse Glow (accent elements) ─────────────────────────────────────── */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow); }
+  50%       { box-shadow: 0 0 20px 4px var(--accent-glow); }
+}
+
+.pulse-glow { animation: pulseGlow 3s ease-in-out infinite; }

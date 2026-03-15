@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certifications | Aakash Dadhich</title>
+  <meta name="description" content="Professional cybersecurity certifications." />
+
+  <script>
+    try {
+      var t = localStorage.getItem('portfolio-theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  </script>
+
+  <link rel="stylesheet" href="./styles/global.css" />
+  <link rel="stylesheet" href="./styles/animations.css" />
+</head>
+
+<body data-page="certifications">
+
+  <div id="site-nav"></div>
+
+  <main id="main-content" class="page-content">
+    <div class="container">
+
+      <header class="section-header">
+        <span class="section-label">&gt; cat certifications.txt</span>
+        <h1>Certifications</h1>
+        <p style="color:var(--text-sec); font-size:1rem; margin-top:8px;">
+          Professional certifications and credentials.
+          Active certs are highlighted; expired certs appear with muted styling.
+        </p>
+        <div class="page-divider"></div>
+      </header>
+
+      <!--
+        Certification cards are injected here by pages/certifications.js.
+        To add certifications: edit content/certifications.js only.
+      -->
+      <div id="certs-root">
+        <!-- Populated by pages/certifications.js -->
+      </div>
+
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script type="module" src="./js/init.js"></script>
+  <script type="module" src="./pages/certifications.js"></script>
+</body>
+</html>

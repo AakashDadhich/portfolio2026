@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Aakash Dadhich</title>
+  <meta name="description" content="Personal cybersecurity projects including tooling, automation, and research." />
+
+  <script>
+    try {
+      var t = localStorage.getItem('portfolio-theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  </script>
+
+  <link rel="stylesheet" href="./styles/global.css" />
+  <link rel="stylesheet" href="./styles/animations.css" />
+</head>
+
+<body data-page="projects">
+
+  <div id="site-nav"></div>
+
+  <main id="main-content" class="page-content">
+    <div class="container">
+
+      <header class="section-header">
+        <span class="section-label">&gt; ls ~/projects/</span>
+        <h1>Personal Projects</h1>
+        <p style="color:var(--text-sec); font-size:1rem; margin-top:8px;">
+          Things I've built outside of work - tooling, automation, and research projects.
+          Click any card to read more.
+        </p>
+        <div class="page-divider"></div>
+      </header>
+
+      <!--
+        Project cards are injected here by pages/projects.js.
+        To add a project: add an entry to content/projects.js only.
+        Layout: 3 cols on desktop → 2 on tablet → 1 on mobile (CSS Grid).
+      -->
+      <div id="projects-root">
+        <!-- Populated by pages/projects.js -->
+      </div>
+
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script type="module" src="./js/init.js"></script>
+
+  <!--
+    Page-specific module: renders project cards and handles the
+    full-screen modal expand/close interaction.
+  -->
+  <script type="module" src="./pages/projects.js"></script>
+</body>
+</html>

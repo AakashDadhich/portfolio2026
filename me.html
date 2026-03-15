@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>/me | Aakash Dadhich</title>
+  <meta name="description" content="Cybersecurity engineer, penetration tester, and security automation specialist." />
+
+  <!-- Theme flash prevention: apply saved theme before any paint -->
+  <script>
+    try {
+      var t = localStorage.getItem('portfolio-theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  </script>
+
+  <link rel="stylesheet" href="./styles/global.css" />
+  <link rel="stylesheet" href="./styles/animations.css" />
+</head>
+
+<!--
+  data-page must match the `page` field in config/navigation.js
+  for the active nav link highlight to work correctly.
+-->
+<body data-page="me">
+
+  <!-- Header injected by js/init.js -->
+  <div id="site-nav"></div>
+
+  <main id="main-content" class="page-content">
+    <div class="container container--narrow">
+
+      <section class="me-hero">
+
+        <!-- ── Headshot ────────────────────────────────────────────────────
+             To replace the placeholder with a real photo:
+               1. Drop your image at public/headshot.jpg (square, min 320×320px)
+               2. Replace the <div class="me-headshot-placeholder"> with:
+                  <img src="./public/headshot.jpg"
+                       alt="Aakash Dadhich"
+                       class="me-headshot" />
+             ─────────────────────────────────────────────────────────────── -->
+        <div class="me-headshot-wrap pulse-glow">
+          <div class="me-headshot-placeholder" aria-label="Aakash Dadhich">AD</div>
+        </div>
+
+        <!-- ── Bio content ───────────────────────────────────────────────── -->
+        <div class="me-content">
+          <p class="me-title" data-animate="fade-in">&gt; whoami</p>
+
+          <h1 class="me-name" data-animate="fade-up" data-animate-delay="80">
+            Aakash Dadhich
+          </h1>
+
+          <p class="me-subtitle" data-animate="fade-up" data-animate-delay="160">
+            <span class="typewriter-text" id="typewriter-text"></span><span class="typewriter-cursor" id="typewriter-cursor"></span>
+          </p>
+
+          <div class="me-bio" data-animate="fade-up" data-animate-delay="260">
+            <p>
+              I'm a security engineer with over six years of experience spanning
+              offensive security, cloud security, and building the detection and
+              response programmes that sit between the two. I've worked across
+              government-scale AWS platforms, national infrastructure, and
+              high-growth fintech environments.
+            </p>
+            <p>
+              This site is a living record of the work I do professionally and
+              the projects I build in my own time - from vulnerability management
+              pipelines and SIEM deployments to penetration testing toolkits and
+              security awareness platforms. If it involves breaking things safely
+              or building the tools to stop others from doing so, I'm interested.
+            </p>
+            <p>
+              Currently at TradingHub as the organisation's first dedicated
+              security engineer, scaling a security operations programme across
+              hybrid cloud environments with a strong focus on automation.
+            </p>
+          </div>
+
+          <!-- ── Stats ────────────────────────────────────────────────────── -->
+          <div class="me-stats" data-animate="fade-up" data-animate-delay="380">
+            <div class="me-stat">
+              <span class="me-stat-value">6+</span>
+              <span class="me-stat-label">Years experience</span>
+            </div>
+            <div class="me-stat">
+              <span class="me-stat-value">173%</span>
+              <span class="me-stat-label">Vuln coverage increase</span>
+            </div>
+            <div class="me-stat">
+              <span class="me-stat-value">66%</span>
+              <span class="me-stat-label">Reduced exposure window</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer injected by js/init.js -->
+  <div id="site-footer"></div>
+
+  <!-- Shared init (header, footer, theme, animations, drawer) -->
+  <script type="module" src="./js/init.js"></script>
+
+  <!-- Typewriter animation for the subtitle -->
+  <script type="module" src="./js/typewriter.js"></script>
+</body>
+</html>

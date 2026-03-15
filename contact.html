@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Aakash Dadhich</title>
+  <meta name="description" content="Get in touch with Aakash Dadhich." />
+
+  <script>
+    try {
+      var t = localStorage.getItem('portfolio-theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  </script>
+
+  <link rel="stylesheet" href="./styles/global.css" />
+  <link rel="stylesheet" href="./styles/animations.css" />
+</head>
+
+<body data-page="contact">
+
+  <div id="site-nav"></div>
+
+  <main id="main-content" class="page-content">
+    <div class="container container--narrow">
+
+      <header class="section-header">
+        <span class="section-label">&gt; ./contact.sh</span>
+        <h1>Get in Touch</h1>
+        <p style="color:var(--text-sec); font-size:1rem; margin-top:8px;">
+          Reach out via email or LinkedIn. The CV link opens the PDF directly in your browser.
+        </p>
+        <div class="page-divider"></div>
+      </header>
+
+      <!--
+        Contact buttons are injected here by pages/contact.js.
+        To update contact details, edit config/site.js only.
+      -->
+      <div id="contact-root">
+        <!-- Populated by pages/contact.js -->
+      </div>
+
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script type="module" src="./js/init.js"></script>
+  <script type="module" src="./pages/contact.js"></script>
+</body>
+</html>

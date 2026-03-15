@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience | Aakash Dadhich</title>
+  <meta name="description" content="Professional cybersecurity experience at TradingHub and PA Consulting." />
+
+  <script>
+    try {
+      var t = localStorage.getItem('portfolio-theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    } catch(e) {}
+  </script>
+
+  <link rel="stylesheet" href="./styles/global.css" />
+  <link rel="stylesheet" href="./styles/animations.css" />
+</head>
+
+<body data-page="experience">
+
+  <div id="site-nav"></div>
+
+  <main id="main-content" class="page-content">
+    <div class="container">
+
+      <header class="section-header">
+        <span class="section-label">&gt; cd ~/career/</span>
+        <h1>Professional Experience</h1>
+        <p class="me-subtitle" style="color:var(--text-sec); font-size:1rem; margin-top:8px;">
+          Six years building, breaking, and securing systems across consulting and in-house roles.
+        </p>
+        <div class="page-divider"></div>
+      </header>
+
+      <!--
+        Experience entries are injected here by pages/experience.js.
+        To add or edit entries, update content/experience.js only.
+      -->
+      <div id="experience-root" class="experience-list">
+        <!-- Populated by pages/experience.js -->
+      </div>
+
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script type="module" src="./js/init.js"></script>
+
+  <!--
+    Page-specific module: renders experience content and sets up
+    the sequential scroll animation for each company card.
+  -->
+  <script type="module" src="./pages/experience.js"></script>
+</body>
+</html>
