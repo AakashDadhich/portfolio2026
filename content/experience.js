@@ -34,8 +34,9 @@ export const experience = [
         bullets: [
           'As the organisation\'s first dedicated security engineer, built and scaled a comprehensive security operations programme across hybrid cloud environments, encompassing vulnerability management, threat detection and response, with a core focus on automation.',
           'Owned and maintained vulnerability scanning tooling for infrastructure and applications, improving coverage by 173% cumulatively across hybrid cloud environments (on-prem, AWS, Azure).',
-          'Led large-scale remediation initiatives following penetration tests, coordinating engineering teams and validating remediation through retesting.',
+          'Led large-scale remediation initiatives following penetration tests, coordinating engineering and infrastructure teams and validating remediation through retesting.',
           'Contextualised vulnerability findings beyond CVSS by incorporating exploitability, exposure, asset criticality, and compensating controls to enable risk-based remediation decisions.',
+          'Designed and implemented enterprise-grade security controls for generative AI tooling across the organisation.',
           'Implemented a centralised SIEM solution improving visibility across endpoints, servers, and cloud platforms.',
           'Developed an automated AWS AMI patching pipeline reducing exposure window by 66%.',
           'Implemented automated AWS Config and Lambda monitoring to detect and remediate dangerous security group rules.',
