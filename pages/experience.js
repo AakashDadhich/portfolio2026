@@ -70,7 +70,7 @@ function renderRole(role) {
 /**
  * Observes each company card. When it enters the viewport, all [data-seq]
  * children animate in sequentially (role-by-role, bullet-by-bullet).
- * The observer disconnects after triggering — animations are one-shot per page load.
+ * The observer disconnects after triggering - animations are one-shot per page load.
  */
 function setupExperienceObserver() {
   if (!('IntersectionObserver' in window)) {

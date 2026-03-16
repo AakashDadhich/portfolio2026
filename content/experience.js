@@ -11,14 +11,14 @@
  * You do not need to touch any layout or component files.
  *
  * Fields:
- *   company       — Company display name
- *   location      — Office location
- *   tenure        — Optional human-readable total tenure at the company
- *   roles[]       — Array of role objects
- *     .title      — Job title
- *     .start      — Start date string, e.g. "Sept 2019"
- *     .end        — End date string, e.g. "Jan 2023" or "Present"
- *     .bullets[]  — Array of responsibility strings
+ *   company       - Company display name
+ *   location      - Office location
+ *   tenure        - Optional human-readable total tenure at the company
+ *   roles[]       - Array of role objects
+ *     .title      - Job title
+ *     .start      - Start date string, e.g. "Sept 2019"
+ *     .end        - End date string, e.g. "Jan 2023" or "Present"
+ *     .bullets[]  - Array of responsibility strings
  */
 
 export const experience = [

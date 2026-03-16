@@ -48,7 +48,7 @@ export function renderHeader() {
     <nav class="site-nav" role="navigation" aria-label="Main navigation">
       <div class="nav-inner">
 
-        <a href="./me.html" class="nav-brand" aria-label="${siteConfig.name} — home">
+        <a href="./me.html" class="nav-brand" aria-label="${siteConfig.name} - home">
           <span class="nav-brand-mono">${siteConfig.initials}</span>
           <span class="nav-brand-name">${siteConfig.name}</span>
         </a>

@@ -5,16 +5,16 @@
  *
  * To add a new project:
  *   1. Append a new object to the array below.
- *   2. The projects page picks it up automatically — no other file needs editing.
+ *   2. The projects page picks it up automatically - no other file needs editing.
  *
  * Fields:
- *   id             — Unique string identifier (used for DOM targeting)
- *   title          — Project name (shown on card front)
- *   shortDesc      — One-line summary (shown on card front)
- *   fullDesc       — Array of paragraph strings (shown in expanded modal)
- *   tags           — Array of technology / topic tags
- *   status         — "complete" | "in-progress" | "archived"
- *   year           — Year the project was built / last updated
+ *   id             - Unique string identifier (used for DOM targeting)
+ *   title          - Project name (shown on card front)
+ *   shortDesc      - One-line summary (shown on card front)
+ *   fullDesc       - Array of paragraph strings (shown in expanded modal)
+ *   tags           - Array of technology / topic tags
+ *   status         - "complete" | "in-progress" | "archived"
+ *   year           - Year the project was built / last updated
  */
 
 export const projects = [
@@ -24,7 +24,7 @@ export const projects = [
     shortDesc: 'End-to-end scanner orchestration that aggregates findings across tools into a single prioritised backlog.',
     fullDesc: [
       'Built a Python-based orchestration layer that schedules and coordinates multiple vulnerability scanners (Nessus, Trivy, OWASP ZAP) and consolidates their output into a normalised finding schema.',
-      'Findings are scored using a custom risk model that weighs CVSS base score against real-time exploit availability (sourced from EPSS and CISA KEV), asset criticality, and network exposure — moving teams beyond raw CVSS triage.',
+      'Findings are scored using a custom risk model that weighs CVSS base score against real-time exploit availability (sourced from EPSS and CISA KEV), asset criticality, and network exposure - moving teams beyond raw CVSS triage.',
       'A lightweight Flask dashboard surfaces the prioritised backlog with filtering, assignment, and SLA tracking. Integrated with Jira via REST API to automatically create and update remediation tickets.',
       'Deployed as a set of Docker containers on an internal server, with a scheduled GitHub Actions workflow for daily scans and Slack alerting for newly discovered critical findings.',
     ],
@@ -124,7 +124,7 @@ export const projects = [
       'A research prototype exploring the use of unsupervised machine learning (Isolation Forest, DBSCAN) to detect anomalous patterns in network flow (NetFlow/IPFIX) data without relying on known attack signatures.',
       'Features are engineered from raw flow records: bytes-per-packet ratios, port entropy per source IP, connection duration distributions, and rare destination port combinations. These feed into a sliding-window anomaly scoring pipeline.',
       'Evaluated against publicly available labelled datasets (CICIDS2018) achieving a 91% precision on known attack categories, with a particular strength in detecting beaconing behaviour and port scanning.',
-      'Built as a learning project to deepen understanding of ML-based detection approaches and their practical limitations — notably high false-positive rates in environments with unusual but legitimate traffic patterns.',
+      'Built as a learning project to deepen understanding of ML-based detection approaches and their practical limitations - notably high false-positive rates in environments with unusual but legitimate traffic patterns.',
     ],
     tags:   ['Python', 'scikit-learn', 'Pandas', 'NetFlow', 'Jupyter'],
     status: 'archived',
@@ -137,7 +137,7 @@ export const projects = [
     fullDesc: [
       'A lightweight Flask web application providing short, scenario-based security awareness modules targeted at non-technical staff. Each module presents a realistic situation (phishing email, suspicious USB device, social engineering call) and asks the user to choose the correct response.',
       'The content engine reads module definitions from YAML files, making it straightforward to add or update training content without touching application code. Modules are versioned so staff see updated content when scenarios are refreshed.',
-      'A simple admin dashboard shows per-user and per-department completion rates, average scores, and identifies the topics with the most incorrect responses — enabling targeted follow-up training.',
+      'A simple admin dashboard shows per-user and per-department completion rates, average scores, and identifies the topics with the most incorrect responses - enabling targeted follow-up training.',
       'Deployed internally via Docker and integrated with Active Directory for single sign-on, removing friction from the training experience and improving completion rates compared to the previous third-party platform.',
     ],
     tags:   ['Python', 'Flask', 'SQLite', 'Docker', 'Active Directory'],

@@ -1,5 +1,5 @@
 /**
- * INIT — Runs on every page
+ * INIT - Runs on every page
  * ──────────────────────────
  * This is the shared entry point loaded by every HTML page.
  * It:

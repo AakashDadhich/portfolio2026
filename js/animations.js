@@ -8,7 +8,7 @@
  *  1. Elements with [data-animate] start with opacity:0 (via animations.css)
  *  2. This module observes all [data-animate] elements on the page
  *  3. When an element enters the viewport, .is-visible is added → CSS transition fires
- *  4. The observer then UNOBSERVES that element — animation never repeats
+ *  4. The observer then UNOBSERVES that element - animation never repeats
  *     unless the page is refreshed (matching the specified behaviour)
  *
  * USAGE:
@@ -21,7 +21,7 @@
 
 /**
  * Initialise the scroll animation observer.
- * Safe to call multiple times — re-observes any new [data-animate] elements.
+ * Safe to call multiple times - re-observes any new [data-animate] elements.
  */
 export function initAnimations() {
   // Fallback: if IntersectionObserver isn't available, just show everything
@@ -44,7 +44,7 @@ export function initAnimations() {
           el.classList.add('is-visible');
         }, delay);
 
-        // Disconnect this element — animation fires once only per page load
+        // Disconnect this element - animation fires once only per page load
         obs.unobserve(el);
       });
     },
