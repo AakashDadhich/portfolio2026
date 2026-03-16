@@ -15,12 +15,13 @@
 // Add, remove, or reorder freely. The first title always appears first;
 // subsequent picks are random (no consecutive repeats).
 const TITLES = [
-  'Security Engineer',
+  'Cyber Security Engineer',
   'Penetration Tester',
   'Vulnerability Manager',
-  'Cloud Security Engineer',
+  'Ethical Hacker',
   'Security Automation Builder',
-  'SIEM Architect',
+  'Security Operations Engineer',
+  'GCP Associate Cloud Engineer'
 ];
 
 // ── Timing (milliseconds) ─────────────────────────────────────────────────

@@ -30,7 +30,7 @@ export const projects = [
     ],
     tags:   ['Python', 'Docker', 'Flask', 'OWASP ZAP', 'Nessus', 'Jira API'],
     status: 'complete',
-    year:   '2024',
+    year:   '',
   },
   {
     id:        'aws-security-posture',

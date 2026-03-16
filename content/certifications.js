@@ -23,23 +23,33 @@ export const certifications = [
   // ── Add your certifications below ──────────────────────────────────────
 
   {
-    provider: 'Offensive Security',
-    name:     'Offensive Security Certified Professional (OSCP)',
-    date:     '2021-06',
-    expires:  null,        // OSCP does not expire
+    provider: 'Google Cloud',
+    name:     'Associate Cloud Engineer',
+    date:     '2023-08',
+    expires:  '2026-08',
   },
   {
-    provider: 'ISC²',
-    name:     'Certified Information Systems Security Professional (CISSP)',
-    date:     '2022-09',
-    expires:  '2025-09',   // Expired - renders with muted styling
+    provider: '7Safe (PA Consulting)',
+    name:     'Certified Cloud Security Analyst (CCSA)',
+    date:     '2023-01',
+    expires:  '2026-01',   // Expired - renders with muted styling
   },
   {
-    provider: 'CompTIA',
-    name:     'Security+',
-    date:     '2023-11',
-    expires:  '2026-11',
+    provider: 'CREST',
+    name:     'Practitioner Security Analyst (CPSA)',
+    date:     '2022-10',
+    expires:  '2025-10',
   },
-
-  // ── End of examples ────────────────────────────────────────────────────
+  {
+    provider: '7Safe (PA Consulting)',
+    name:     'Certified Security Testing Associate (CSTA)',
+    date:     '2020-10',
+    expires:  '2023-10',
+  },
+  {
+    provider: '7Safe (PA Consulting)',
+    name:     'Certified Security Testing Professional (CSTP)',
+    date:     '2019-11',
+    expires:  '2022-11',
+  },
 ];
