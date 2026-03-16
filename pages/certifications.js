@@ -9,6 +9,7 @@
 
 import { certifications } from '../content/certifications.js';
 import { isCertExpired, formatCertDate } from '../utils/dates.js';
+import { observeNewElements } from '../js/animations.js';
 
 const root = document.getElementById('certs-root');
 if (!root) throw new Error('Missing #certs-root element');
@@ -37,6 +38,9 @@ if (certifications.length === 0) {
     </div>
   `;
 }
+
+// Trigger animations now that content is in the DOM
+observeNewElements();
 
 // ─────────────────────────────────────────────────────────────────────────
 // Cert card renderer

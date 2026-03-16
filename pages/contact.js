@@ -6,6 +6,7 @@
  */
 
 import { siteConfig } from '../config/site.js';
+import { observeNewElements } from '../js/animations.js';
 
 const root = document.getElementById('contact-root');
 if (!root) throw new Error('Missing #contact-root element');
@@ -29,7 +30,7 @@ const buttons = [
   },
   {
     label:    'Download CV',
-    value:    'Latest version available upon request.',
+    value:    'Available upon request.',
     href:     siteConfig.cvPath,
     icon:     '↓',
     delay:    160,
@@ -42,6 +43,9 @@ root.innerHTML = `
     ${buttons.map(renderButton).join('')}
   </div>
 `;
+
+// Trigger animations now that content is in the DOM
+observeNewElements();
 
 function renderButton(btn) {
   const extras = btn.external

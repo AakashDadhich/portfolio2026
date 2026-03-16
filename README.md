@@ -1,6 +1,6 @@
-# Aakash Dadhich - Cybersecurity Portfolio
+# Aakash Dadhich — Cybersecurity Portfolio
 
-A modular, file-based portfolio website for a cybersecurity professional. Built with vanilla ES modules + Tailwind-style CSS variables - no build step, no framework dependencies. Deploy anywhere static files can be served.
+A modular, file-based portfolio website for a cybersecurity professional. Built with vanilla ES modules + Tailwind-style CSS variables — no build step, no framework dependencies. Deploy anywhere static files can be served.
 
 ---
 
@@ -79,10 +79,10 @@ The architecture separates concerns across four layers:
 
 | Layer | Location | Purpose |
 |---|---|---|
-| **Content** | `content/` | Pure data - arrays of objects. No HTML. |
+| **Content** | `content/` | Pure data — arrays of objects. No HTML. |
 | **Page logic** | `pages/` | Reads content, builds HTML strings, wires interactions |
 | **Components** | `components/` | Reusable UI fragments (header, footer) |
-| **Shared systems** | `js/` | Theme, animations, init - run on every page |
+| **Shared systems** | `js/` | Theme, animations, init — run on every page |
 
 Every HTML page does three things:
 1. Loads `js/init.js` (injects header/footer, sets up theme and animations)
@@ -93,7 +93,7 @@ Every HTML page does three things:
 
 ## How to add a new page
 
-**Step 1 - Create the HTML file**
+**Step 1 — Create the HTML file**
 
 Copy an existing page (e.g. `contact.html`) and update:
 - `<title>` tag
@@ -117,7 +117,7 @@ Copy an existing page (e.g. `contact.html`) and update:
 </body>
 ```
 
-**Step 2 - Create the page module** (optional, only if you have dynamic content)
+**Step 2 — Create the page module** (optional, only if you have dynamic content)
 
 ```js
 // pages/tools.js
@@ -125,7 +125,7 @@ const root = document.getElementById('tools-root');
 root.innerHTML = '<p>Your content here</p>';
 ```
 
-**Step 3 - Add to navigation** (optional)
+**Step 3 — Add to navigation** (optional)
 
 See [How to update navigation](#how-to-update-navigation).
 
@@ -144,7 +144,7 @@ Open `content/projects.js` and append a new object to the `projects` array:
   shortDesc: 'One sentence shown on the card.',
   fullDesc: [
     'First paragraph of the detailed description.',
-    'Second paragraph - appears in the expanded modal.',
+    'Second paragraph — appears in the expanded modal.',
   ],
   tags:   ['Python', 'AWS', 'Docker'],  // first 3 shown on card, all shown in modal
   status: 'complete',                   // 'complete' | 'in-progress' | 'archived'
@@ -225,9 +225,9 @@ export const navItems = [
 ];
 ```
 
-- `label` - text shown in the nav bar
-- `href`  - relative path to the HTML file
-- `page`  - must match the `data-page` attribute on that page's `<body>` tag
+- `label` — text shown in the nav bar
+- `href`  — relative path to the HTML file
+- `page`  — must match the `data-page` attribute on that page's `<body>` tag
 
 The header component (`components/header.js`) reads this array at runtime. No other file needs editing.
 
@@ -244,7 +244,7 @@ The header component (`components/header.js`) reads this array at runtime. No ot
    cvPath: './public/my-new-cv.pdf',
    ```
 
-The contact page reads `cvPath` from `site.js` - no other edits needed.
+The contact page reads `cvPath` from `site.js` — no other edits needed.
 
 ---
 
@@ -270,7 +270,7 @@ The contact page reads `cvPath` from `site.js` - no other edits needed.
 
 The site ships with dark mode by default. The user's preference is saved in `localStorage`.
 
-Themes are implemented entirely via CSS custom properties on `:root` (dark defaults) and `[data-theme="light"]` overrides. Every colour reference in the CSS uses a variable - switching theme is instantaneous.
+Themes are implemented entirely via CSS custom properties on `:root` (dark defaults) and `[data-theme="light"]` overrides. Every colour reference in the CSS uses a variable — switching theme is instantaneous.
 
 To change the accent colour, update `--accent` in `styles/global.css`:
 ```css
@@ -287,7 +287,7 @@ To change the accent colour, update `--accent` in `styles/global.css`:
 - Add `data-animate="fade-up"` (or `fade-in`, `fade-left`) to any element
 - Optional delay: `data-animate-delay="200"` (milliseconds)
 - The IntersectionObserver adds `.is-visible` when the element enters the viewport
-- The observer then **disconnects** - animations fire **once only per page load**
+- The observer then **disconnects** — animations fire **once only per page load**
 
 **Experience sequential animation** (`pages/experience.js`):
 - Each company card observes the viewport
@@ -295,9 +295,15 @@ To change the accent colour, update `--accent` in `styles/global.css`:
 - Timing: company header → role titles → bullet points (cascading, one by one)
 - Mimics progressive text reveal
 
+**Typewriter animation** (`js/typewriter.js`):
+- Runs only on `me.html` — loaded via a separate `<script>` tag on that page
+- Cycles through the `TITLES` array in that file, typing and backspacing each title with a blinking cursor
+- To add, remove, or reorder titles: edit the `TITLES` array at the top of `js/typewriter.js`
+- Timing constants (`TYPE_SPEED`, `DELETE_SPEED`, `PAUSE_AFTER`, `PAUSE_BEFORE`) are all defined at the top of the same file for easy tuning
+
 **Modal animation** (`styles/animations.css`):
-- `@keyframes modalIn` - scale + translate spring entrance
-- `@keyframes modalOut` - fast fade-out on close
+- `@keyframes modalIn` — scale + translate spring entrance
+- `@keyframes modalOut` — fast fade-out on close
 - Both driven by CSS classes, no JS animation library needed
 
 ---
@@ -315,11 +321,11 @@ python3 -m http.server 3000
 npx serve .
 ```
 
-**Production** - upload the entire directory to:
-- Netlify / Vercel - drag and drop or connect a Git repo
-- GitHub Pages - push to a `gh-pages` branch
-- AWS S3 + CloudFront - upload files, set `index.html` as default
-- Any web server (Nginx, Apache) - serve the directory as static files
+**Production** — upload the entire directory to:
+- Netlify / Vercel — drag and drop or connect a Git repo
+- GitHub Pages — push to a `gh-pages` branch
+- AWS S3 + CloudFront — upload files, set `index.html` as default
+- Any web server (Nginx, Apache) — serve the directory as static files
 
 > **Note on ES modules:** Browsers require files to be served over HTTP (not `file://`) for `import` statements to work. Always use a local server during development.
 
@@ -338,3 +344,9 @@ npx serve .
 | `public/headshot.jpg` | Replace the file | New profile photo |
 | `styles/global.css` | Design tokens, component styles | Restyling the site |
 | `me.html` | Bio text, stats | Updating the about page |
+| `js/typewriter.js` | `TITLES` array and timing constants | Changing the typewriter job titles or speed |
+| `components/footer.js` | Footer links and copyright text | Updating footer content |
+
+### Font stack
+
+The heading font is **Outfit** (Google Fonts), loaded via `@import` in `styles/global.css`. Body text uses **Karla** and code/labels use **IBM Plex Mono**. To change any of these, update both the `@import` URL and the corresponding `--font-*` custom property in `:root`.

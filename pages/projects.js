@@ -10,6 +10,7 @@
  */
 
 import { projects } from '../content/projects.js';
+import { observeNewElements } from '../js/animations.js';
 
 const root = document.getElementById('projects-root');
 if (!root) throw new Error('Missing #projects-root element');
@@ -20,6 +21,11 @@ root.innerHTML = `
     ${projects.map((p, i) => renderCard(p, i)).join('')}
   </div>
 `;
+
+// Trigger animations now that content is in the DOM.
+// Called here (not in init.js) to avoid a race condition on live servers
+// where the network import takes longer than init.js's 50ms animation delay.
+observeNewElements();
 
 // ── Wire up card clicks ───────────────────────────────────────────────────
 root.addEventListener('click', e => {

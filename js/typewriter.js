@@ -5,7 +5,7 @@
  * type-and-backspace animation and a blinking cursor.
  *
  * To add or change the titles, edit the TITLES array below.
- * The sequence is randomised - each new title is picked randomly
+ * The sequence is randomised — each new title is picked randomly
  * from the remaining options so none repeats consecutively.
  *
  * Timing constants can be tuned at the bottom of this file.
@@ -19,10 +19,8 @@ const TITLES = [
   'Penetration Tester',
   'Vulnerability Manager',
   'Cloud Security Engineer',
-  'DevSecOps Engineer',
   'Security Automation Builder',
   'SIEM Architect',
-  'Red Teamer',
 ];
 
 // ── Timing (milliseconds) ─────────────────────────────────────────────────
@@ -32,11 +30,11 @@ const PAUSE_AFTER   = 2200; // how long the complete title stays visible before 
 const PAUSE_BEFORE  = 320;  // pause after fully deleted, before typing the next title
 
 // ─────────────────────────────────────────────────────────────────────────
-// Engine - no need to edit below this line
+// Engine — no need to edit below this line
 // ─────────────────────────────────────────────────────────────────────────
 
 const el = document.getElementById('typewriter-text');
-if (!el) throw new Error('typewriter-text element not found - is this running on me.html?');
+if (!el) throw new Error('typewriter-text element not found — is this running on me.html?');
 
 let currentIndex = 0;
 let lastIndex     = -1;
@@ -93,7 +91,7 @@ function wait(ms) {
 }
 
 /**
- * Main animation loop - runs indefinitely.
+ * Main animation loop — runs indefinitely.
  */
 async function run() {
   // Start with the first title (not random) so the page always

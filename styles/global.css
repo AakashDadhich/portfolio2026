@@ -1,5 +1,5 @@
 /* ==========================================================================
-   GLOBAL STYLES - Design system for Aakash Dadhich's portfolio
+   GLOBAL STYLES — Design system for Aakash Dadhich's portfolio
    
    Architecture:
    - CSS custom properties drive the entire theme system
@@ -16,7 +16,7 @@
 /* ─── Google Fonts ─────────────────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Karla:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap');
 
-/* ─── Design Tokens (Dark Theme - default) ─────────────────────────────── */
+/* ─── Design Tokens (Dark Theme — default) ─────────────────────────────── */
 :root {
   /* Backgrounds */
   --bg:          #090e17;
@@ -24,7 +24,7 @@
   --bg-elevated: #162234;
   --bg-hover:    #1e2e42;
 
-  /* Accent - Matrix-adjacent green */
+  /* Accent — Matrix-adjacent green */
   --accent:      #3ddc84;
   --accent-dim:  rgba(61, 220, 132, 0.10);
   --accent-glow: rgba(61, 220, 132, 0.22);
@@ -124,7 +124,7 @@ h1, h2, h3, h4, h5 {
 }
 
 /*
-  h1 is intentionally modest here - the large hero display size is
+  h1 is intentionally modest here — the large hero display size is
   applied specifically via .me-name on the /me page only.
   This prevents page titles (Professional Experience, Projects, etc.)
   from rendering at an enormous, stretched weight on wide displays.
@@ -270,7 +270,7 @@ h4 { font-size: 1rem; font-weight: 600; }
   transition: color var(--transition);
 }
 
-/* Underline via pseudo-element - completely decoupled from border */
+/* Underline via pseudo-element — completely decoupled from border */
 .nav-link::after {
   content: '';
   position: absolute;
@@ -407,7 +407,7 @@ h4 { font-size: 1rem; font-weight: 600; }
   border-radius: var(--radius);
   border: 1px solid transparent;
   transition: all var(--transition);
-  margin-bottom: 6px;               /* gap between rows - not gap: on parent */
+  margin-bottom: 6px;               /* gap between rows — not gap: on parent */
   line-height: 1;
 }
 
@@ -580,7 +580,7 @@ h4 { font-size: 1rem; font-weight: 600; }
 
 .me-bio p + p { margin-top: 16px; }
 
-/* Stats - one stat per line on mobile, single row on desktop */
+/* Stats — one stat per line on mobile, single row on desktop */
 .me-stats {
   display: flex;
   flex-direction: column;   /* stack vertically on mobile */
@@ -596,7 +596,7 @@ h4 { font-size: 1rem; font-weight: 600; }
   gap: 4px;
 }
 
-/* 768px+ - same breakpoint as me-hero row layout, so stats go horizontal when photo moves to the side */
+/* 768px+ — same breakpoint as me-hero row layout, so stats go horizontal when photo moves to the side */
 @media (min-width: 768px) {
   .me-stats {
     flex-direction: row;
