@@ -73,7 +73,7 @@ function renderCard(project, index) {
          aria-label="View details for ${project.title}">
 
       <span class="project-card-number mono muted">
-        ${String(index + 1).padStart(2, '0')} / ${project.year}
+        #${String(index + 1).padStart(3, '0')} / ${project.year}
       </span>
 
       <h3 class="project-card-title">${project.title}</h3>
@@ -104,6 +104,19 @@ function openModal(project) {
     .map(p => `<p>${p}</p>`)
     .join('');
 
+  // Render images only if the project has a modalImages array defined
+  // Images are intentionally not shown on the card front - only here in the modal
+  const imagesHTML = (project.modalImages && project.modalImages.length)
+    ? `<div class="modal-images">
+        ${project.modalImages.map(img => `
+          <img src="${img.src}"
+               alt="${img.alt}"
+               class="modal-image ${img.className || 'modal-image--full'}"
+               loading="lazy" />
+        `).join('')}
+      </div>`
+    : '';
+
   const statusInfo = STATUS_LABELS[project.status] || STATUS_LABELS['complete'];
 
   const backdrop = document.createElement('div');
@@ -121,6 +134,7 @@ function openModal(project) {
         <div class="modal-tags">${tags}</div>
         <div class="modal-divider"></div>
         <div class="modal-desc">${paragraphs}</div>
+        ${imagesHTML}
       </div>
     </div>
   `;
