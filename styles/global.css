@@ -972,6 +972,33 @@ h4 { font-size: 1rem; font-weight: 600; }
 
 .modal-desc p + p { margin-top: 14px; }
 
+/* Images shown in the expanded modal only - never on card fronts */
+.modal-images {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+  align-items: center;  /* centres all images horizontally */
+}
+
+/* Base style shared by all modal images */
+.modal-image {
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-sub);
+  display: block;
+}
+
+/* Architecture diagrams - constrained to 70% so they don't overwhelm the modal */
+.modal-image--diagram {
+  width: 65%;
+}
+
+/* Full-width images - screenshots, thumbnails etc. */
+.modal-image--full {
+  width: 100%;
+}
+
 /* ─── Certifications ────────────────────────────────────────────────────── */
 .certs-grid {
   display: grid;
