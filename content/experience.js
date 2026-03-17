@@ -28,7 +28,7 @@ export const experience = [
     tenure:   'Oct 2024 – Present',
     roles: [
       {
-        title:  'Security Operations & Vulnerability Management',
+        title:  'Cyber Security Engineer (SecOps & Vuln Mgmt)',
         start:  'Oct 2024',
         end:    'Present',
         bullets: [
