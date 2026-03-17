@@ -36,7 +36,7 @@ function renderCompany(company) {
           <h2 class="company-name" data-seq>${company.company}</h2>
           <p class="company-location" data-seq>${company.location}</p>
         </div>
-        <span class="company-total-tenure" data-seq>${company.tenure}</span>
+        <span class="company-total-tenure${company.tenure.includes('Present') ? ' company-tenure--present' : ' company-tenure--past'}" data-seq>${company.tenure}</span>
       </div>
       <div class="role-list">
         ${rolesHTML}
@@ -54,7 +54,7 @@ function renderRole(role) {
     <div class="role-item">
       <div class="role-header">
         <h3 class="role-title" data-seq>${role.title}</h3>
-        <span class="role-dates" data-seq>${role.start} – ${role.end}</span>
+        <span class="role-dates${role.end === 'Present' ? ' role-dates--present' : ' role-dates--past'}" data-seq>${role.start} – ${role.end}</span>
       </div>
       <ul class="role-bullets">
         ${bulletsHTML}

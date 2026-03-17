@@ -672,14 +672,27 @@ h4 { font-size: 1rem; font-weight: 600; }
 .company-total-tenure {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--accent);
-  background: var(--accent-dim);
-  border: 1px solid var(--border);
   padding: 4px 10px;
   border-radius: 20px;
   white-space: nowrap;
   flex-shrink: 0;
   align-self: center;
+  border: 1px solid transparent;
+}
+
+/* Current company — green box, green text */
+.company-tenure--present {
+  color: var(--accent);
+  background: var(--accent-dim);
+  border-color: var(--border);
+}
+
+/* Past company — grey box, grey text, muted */
+.company-tenure--past {
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+  border-color: var(--border-sub);
+  opacity: 0.6;
 }
 
 .role-list {
@@ -728,6 +741,16 @@ h4 { font-size: 1rem; font-weight: 600; }
   border-radius: 20px;
   white-space: nowrap;
   flex-shrink: 0;
+}
+
+.role-dates--present {
+  color: var(--accent);
+  border-color: var(--border);
+}
+
+.role-dates--past {
+  color: var(--text-muted);
+  opacity: 0.6;
 }
 
 .role-bullets {
