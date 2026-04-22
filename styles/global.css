@@ -999,6 +999,11 @@ h4 { font-size: 1rem; font-weight: 600; }
   width: 100%;
 }
 
+/* Medium images - constrained to 70% for portrait/tall screenshots */
+.modal-image--medium {
+  width: 70%;
+}
+
 /* ─── Certifications ────────────────────────────────────────────────────── */
 .certs-grid {
   display: grid;
