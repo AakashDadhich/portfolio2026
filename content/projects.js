@@ -22,19 +22,6 @@
 
 export const projects = [
   {
-    id:        'portfolio-2026',
-    title:     'Portfolio Website',
-    shortDesc: 'A modular, file-based portfolio site built through an iterative conversation with Claude, Anthropic\'s AI assistant.',
-    fullDesc: [
-      'Having built portfolio websites from scratch in the past (you can view an earlier example on <u><a href="https://github.com/AakashDadhich/portfolio2024-frontend" target="_blank" rel="noopener noreferrer">GitHub</a></u>), I wanted to take a different approach this time around.',
-      'With generative AI becoming increasingly prevalent, both as a tool and as something security teams need to think carefully about, I felt it was important to develop a hands-on understanding of how these systems work. As a security engineer, building better guardrails and controls around AI tooling in a professional context requires more than a theoretical understanding; I need to understand how my organisation\'s engineers are using it, what their frustrations are, and strike a balance between usability and security.',
-      'This site was designed and built entirely through a conversation with Claude (Anthropic\'s AI assistant), from the initial architecture all the way through to the animations and responsive layout. The content itself, the project descriptions, experience entries, and bio, is my own wording, drawn from previous portfolio sites I\'d written from scratch and my CV. It was more iterative than I expected: describe what I wanted, review the output, push back where it missed the mark, repeat. The result is a modular, file-based static site hosted on GitHub Pages. You can view the repo on <u><a href="https://github.com/AakashDadhich/portfolio2026" target="_blank" rel="noopener noreferrer">GitHub</a></u>.',
-    ],
-    tags:   ['GenAI', 'GitHub Pages', 'Showcase'],
-    status: 'complete',
-    year:   '2026',
-  },
-  {
     id:        'recon-discord-bot',
     title:     'Recon RSS Discord Bot',
     shortDesc: 'A self-hosted Discord bot that monitors RSS feeds across multiple channels and posts new articles as formatted embeds, managed entirely through slash commands.',
@@ -49,6 +36,20 @@ export const projects = [
     modalImages: [
       { src: './public/images/Recon-1.png', alt: 'Recon RSS Bot - Discord embed showing a live article post', className: 'modal-image--full' },
     ],
+  },
+
+  {
+    id:        'portfolio-2026',
+    title:     'Portfolio Website',
+    shortDesc: 'A modular, file-based portfolio site built through an iterative conversation with Claude, Anthropic\'s AI assistant.',
+    fullDesc: [
+      'Having built portfolio websites from scratch in the past (you can view an earlier example on <u><a href="https://github.com/AakashDadhich/portfolio2024-frontend" target="_blank" rel="noopener noreferrer">GitHub</a></u>), I wanted to take a different approach this time around.',
+      'With generative AI becoming increasingly prevalent, both as a tool and as something security teams need to think carefully about, I felt it was important to develop a hands-on understanding of how these systems work. As a security engineer, building better guardrails and controls around AI tooling in a professional context requires more than a theoretical understanding; I need to understand how my organisation\'s engineers are using it, what their frustrations are, and strike a balance between usability and security.',
+      'This site was designed and built entirely through a conversation with Claude (Anthropic\'s AI assistant), from the initial architecture all the way through to the animations and responsive layout. The content itself, the project descriptions, experience entries, and bio, is my own wording, drawn from previous portfolio sites I\'d written from scratch and my CV. It was more iterative than I expected: describe what I wanted, review the output, push back where it missed the mark, repeat. The result is a modular, file-based static site hosted on GitHub Pages. You can view the repo on <u><a href="https://github.com/AakashDadhich/portfolio2026" target="_blank" rel="noopener noreferrer">GitHub</a></u>.',
+    ],
+    tags:   ['GenAI', 'GitHub Pages', 'Showcase'],
+    status: 'complete',
+    year:   '2026',
   },
 
   {
