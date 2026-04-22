@@ -35,6 +35,23 @@ export const projects = [
     year:   '2026',
   },
   {
+    id:        'recon-discord-bot',
+    title:     'Recon RSS Discord Bot',
+    shortDesc: 'A self-hosted Discord bot that monitors RSS feeds across multiple channels and posts new articles as formatted embeds, managed entirely through slash commands.',
+    fullDesc: [
+      "I was tired of manually trawling through a dozen news sites to keep up with the topics I care about most - cybersecurity, tech, and world news - so I built Recon RSS to handle it automatically. Using Claude Code as my development environment throughout, the bot lets you subscribe to RSS feeds and route them to channels of your choice within your own Discord server, polling every five minutes and posting new articles as formatted embeds with no manual intervention needed.",
+      "Rather than relying on RSS timestamps, which are notoriously inconsistent across feeds, I used a position-based approach to detect new articles: the bot tracks the URL of the last article it posted per feed, and anything sitting above that in the current list is treated as new. The codebase is split into three Discord cogs with clear responsibilities - a background poller, a feed management interface, and an admin/status layer. A few real-world quirks surfaced during testing: some feeds embed raw HTML in their summaries, which Discord renders as literal tags, and Discord fires a separate notification event for file attachments. I was able to identify the cause of both issues and fix them cleanly.",
+      "The bot runs as a systemd service on a Hetzner VPS, restarting automatically on failure. The full command set covers adding, removing, and renaming feeds, pausing and resuming channels, triggering manual polls, and pulling a live status summary - no SSH required for day-to-day use. You can view the repo on <u><a href=\"https://github.com/AakashDadhich/recon-discord-bot\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a></u>.",
+    ],
+    tags:   ['Python', 'Discord.py', 'GenAI'],
+    status: 'complete',
+    year:   '2026',
+    modalImages: [
+      { src: './public/images/Recon-1.png', alt: 'Recon RSS Bot - Discord embed showing a live article post', className: 'modal-image--full' },
+    ],
+  },
+
+  {
     id:        'cloud-resume-challenge',
     title:     'Cloud Resume Challenge',
     shortDesc: 'A full-stack cloud project hosting a resume website on AWS, complete with a serverless backend, CI/CD pipeline, and infrastructure-as-code.',
