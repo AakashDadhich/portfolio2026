@@ -24,7 +24,7 @@ export const projects = [
   {
     id:        'recon-discord-bot',
     title:     'Recon RSS Discord Bot',
-    shortDesc: 'A self-hosted Discord bot that monitors RSS feeds across multiple channels and posts new articles as formatted embeds, managed entirely through slash commands.',
+    shortDesc: 'A self-hosted Discord bot that monitors RSS feeds across multiple channels and posts new articles as formatted embeds.',
     fullDesc: [
       "I was tired of manually trawling through a dozen news sites to keep up with the topics I care about most - cybersecurity, tech, and world news - so I built Recon RSS to handle it automatically. Using Claude Code as my development environment throughout, the bot lets you subscribe to RSS feeds and route them to channels of your choice within your own Discord server, polling every five minutes and posting new articles as formatted embeds with no manual intervention needed.",
       "Rather than relying on RSS timestamps, which are notoriously inconsistent across feeds, I used a position-based approach to detect new articles: the bot tracks the URL of the last article it posted per feed, and anything sitting above that in the current list is treated as new. The codebase is split into three Discord cogs with clear responsibilities - a background poller, a feed management interface, and an admin/status layer. A few real-world quirks surfaced during testing: some feeds embed raw HTML in their summaries, which Discord renders as literal tags, and Discord fires a separate notification event for file attachments. I was able to identify the cause of both issues and fix them cleanly.",
@@ -125,7 +125,7 @@ export const projects = [
 
   {
     id:        'discord-dungeon-crawler',
-    title:     'Discord Dungeon Crawler',
+    title:     'Dungeon Crawler Discord Bot',
     shortDesc: 'A collaborative dungeon crawler Discord bot built at LincolnHack 2018, where server members vote via reactions to control a character on a procedurally generated map.',
     fullDesc: [
       "Created with a partner during LincolnHack 2018, this project was inspired by 'Twitch Plays Pokémon' but built on Discord using the Discord Bot API (Discord.js). A map is procedurally generated with items and enemies rendered using emojis. The bot posts the map and listens for reactions - once the first reaction is received, a 5-second voting window opens and the direction with the most votes is taken.",
