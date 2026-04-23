@@ -38,8 +38,6 @@ export const experience = [
           'Contextualised vulnerability findings beyond CVSS by incorporating exploitability, exposure, asset criticality, and compensating controls to enable risk-based remediation decisions.',
           'Designed and implemented enterprise-grade security controls for generative AI tooling across the organisation.',
           'Implemented a centralised SIEM solution improving visibility across endpoints, servers, and cloud platforms.',
-          'Developed an automated AWS AMI patching pipeline reducing exposure window by 66%.',
-          'Implemented automated AWS Config and Lambda monitoring to detect and remediate dangerous security group rules.',
           'Drove shift-left security initiatives including DAST integration into CI/CD pipelines and secure-by-design development practices.',
           'Managed vulnerability exception workflows and tracked remediation against SOC2/ISO27001 SLAs.',
         ],
