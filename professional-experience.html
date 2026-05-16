@@ -28,7 +28,7 @@
         <span class="section-label">&gt; cd ~/career/</span>
         <h1>Professional Experience</h1>
         <p class="me-subtitle" style="color:var(--text-sec); font-size:1rem; margin-top:8px;">
-          Six years building, breaking, and securing systems across consulting and in-house roles.
+          <span data-yoe="word" data-yoe-cap>six</span> years building, breaking, and securing systems across consulting and in-house roles.
         </p>
         <div class="page-divider"></div>
       </header>
@@ -53,5 +53,10 @@
     the sequential scroll animation for each company card.
   -->
   <script type="module" src="./pages/experience.js"></script>
+
+  <script type="module">
+    import { updateYearsDisplay } from './js/experience-years.js';
+    updateYearsDisplay();
+  </script>
 </body>
 </html>

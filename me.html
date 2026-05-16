@@ -60,7 +60,7 @@
 
           <div class="me-bio" data-animate="fade-up" data-animate-delay="260">
             <p>
-              I'm a security engineer with over six years of experience spanning
+              I'm a security engineer with over <span data-yoe="word">six</span> years of experience spanning
               offensive security, cloud security, and building the detection and
               response programmes that sit between the two. I've worked across
               government-scale cloud platforms, critical national infrastructure, and
@@ -76,7 +76,7 @@
           <!-- ── Stats ────────────────────────────────────────────────────── -->
           <div class="me-stats" data-animate="fade-up" data-animate-delay="380">
             <div class="me-stat">
-              <span class="me-stat-value">6+</span>
+              <span class="me-stat-value" data-yoe="stat">6+</span>
               <span class="me-stat-label">Years experience</span>
             </div>
             <div class="me-stat">
@@ -103,5 +103,10 @@
 
   <!-- Typewriter animation for the subtitle -->
   <script type="module" src="./js/typewriter.js"></script>
+
+  <script type="module">
+    import { updateYearsDisplay } from './js/experience-years.js';
+    updateYearsDisplay();
+  </script>
 </body>
 </html>
