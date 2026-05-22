@@ -550,6 +550,15 @@ h4 { font-size: 1rem; font-weight: 600; }
   .me-subtitle { justify-content: flex-start; }
 }
 
+.page-subtitle {
+  font-size: 1rem;
+  color: var(--text-sec);
+  font-weight: 300;
+  font-family: var(--font-mono);
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
 /* The typed text span */
 .typewriter-text {
   color: var(--accent);
