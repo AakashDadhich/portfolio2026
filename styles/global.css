@@ -90,6 +90,8 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.7;
@@ -151,7 +153,7 @@ h4 { font-size: 1rem; font-weight: 600; }
 .page-content {
   padding-top: calc(var(--nav-h) + 48px);
   padding-bottom: 80px;
-  min-height: 100vh;
+  flex: 1;
 }
 
 .section-header {
