@@ -19,7 +19,8 @@ const TITLES = [
   'Penetration Tester',
   'Vulnerability Manager',
   'Ethical Hacker',
-  'Security Automation Builder',
+  'AI Security Specialist',
+  'Automation Builder',
   'Security Operations Engineer',
   'GCP Associate Cloud Engineer'
 ];

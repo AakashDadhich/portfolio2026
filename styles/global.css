@@ -486,15 +486,23 @@ h4 { font-size: 1rem; font-weight: 600; }
 .me-headshot-wrap {
   flex-shrink: 0;
   position: relative;
-}
-
-.me-headshot {
   width: 160px;
   height: 160px;
   border-radius: 50%;
+  overflow: hidden;
   border: 3px solid var(--accent);
-  object-fit: cover;
   box-shadow: 0 0 0 6px var(--accent-dim), 0 0 40px var(--accent-glow);
+}
+
+.me-headshot {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  top: 41%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  object-position: 51% 15%;
   display: block;
 }
 
