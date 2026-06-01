@@ -32,7 +32,7 @@ export const experience = [
         start:  'Oct 2024',
         end:    'Present',
         bullets: [
-          'As the organisation\'s first dedicated security engineer, built and scaled a comprehensive security operations programme across hybrid cloud environments, encompassing vulnerability management, threat detection and response, with a core focus on automation.',
+          'As the organisation\'s first dedicated security engineer, extended and scaled a comprehensive security operations programme across hybrid cloud environments, encompassing vulnerability management, threat detection and response, with a core focus on automation.',
           'Championed AI security across the organisation, implementing controls and guardrails for safe AI adoption aligned to ISO 42001.',
           'Designing secure cloud environments for AI agents and defining security frameworks for the creation of generative AI products covering data handling, input sanitisation and output context grounding.',
           'Implemented a centralised SIEM and owned vulnerability scanning tooling across hybrid cloud environments (on-prem, AWS, Azure), driving a 173% improvement in scanning coverage and significantly enhancing visibility across endpoints, servers, and cloud platforms.',
