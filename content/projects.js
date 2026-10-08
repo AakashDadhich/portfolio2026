@@ -22,6 +22,99 @@
 
 export const projects = [
   {
+    id:        'personal-knowledge-base',
+    title:     'Personal Knowledge Base',
+    shortDesc: 'A plain-markdown wiki that an AI agent can read and maintain, so I never have to re-explain my own context to an LLM.',
+    fullDesc: [
+      "My memory is terrible, and I found myself re-explaining the same context to AI assistants every session, like progress and decisions made in side-projects, or lightweight personal information. I wanted that knowledge written down once and reusable, in a form both I and an AI agent could work with.",
+      "The knowledge base is a folder of small markdown cards with YAML frontmatter, loosely based on Google's Open Knowledge Format (OKF). I write and read it in Obsidian, Git tracks every change, and Claude Code is started inside the folder to answer questions from it. The agent starts at a root index, reads one or two topic indexes, searches, and opens only the handful of cards it needs, which keeps answers accurate and cheap.",
+      "Trust is the core design problem. Cards I write are the source of truth, and the agent is never allowed to edit their body without my express permission. Cards the agent drafts from clipped articles are marked unverified until I approve them, and every claim footnotes the original source, which is kept unchanged. When cards conflict, the agent follows a fixed priority order and tells me about the conflict rather than silently picking one. Every answer cites the cards it used along with their trust level.",
+      "The agent also handles the chores: processing an inbox of clipped articles into draft cards, keeping indexes and links current, and running a lint pass for broken links, orphaned cards, invalid frontmatter and stale content.",
+      "Since this is being actively built out, I built a Claude Mod to be able to actively trace which knowledge cards were being hit, and if it was following the intended path or doing something strange. I also gave it the ability to view the card's contents and to launch it in Obsidian to quickly edit the card if required.",
+    ],
+    tags:   ['GenAI', 'Wiki', 'Obsidian', 'Git'],
+    status: 'in-progress',
+    year:   '2026',
+    modalImages: [
+      { src: './public/images/KB-Trace-1.png', alt: 'Personal Knowledge Base - KB trace pane showing the cards read for a query', className: 'modal-image--narrow' },
+    ],
+  },
+
+  {
+    id:        'local-ai-server',
+    title:     'Local AI Server',
+    shortDesc: 'A self-hosted AI server built mostly from spare parts, running a vision-capable coding model and an on-demand reviewer on two GTX 1060s.',
+    fullDesc: [
+      "I wanted a private AI assistant that runs entirely on my own hardware, so I built a headless Ubuntu server mostly from parts I already had: an i7-4790K, 32GB of DDR3 and two GTX 1060 6GB cards. Each card is dedicated to one role rather than splitting a single model across both.",
+      "The first GPU runs Qwen3.5-4B around the clock through llama.cpp, covering coding, general chat and screenshot understanding in one model. The second runs Gemma 4 E4B on demand as a reviewer. I deliberately chose a different model family for the reviewer, since a second opinion is only useful if its mistakes aren't correlated with the first model's. Open WebUI is the front end, and I wrote a filter function that can be toggled per message to send an answer to the reviewer and append its verdict.",
+      "Most of the work was fitting everything into 6GB of VRAM on older Pascal GPUs. I built llama.cpp from source against CUDA 12, since newer CUDA releases dropped support for these cards, and planned a VRAM budget for weights, the vision encoder, context and compute buffers. Testing on real hardware changed several of those plans. Uploading a real image crashed the server, which turned out to be a startup warning I had wrongly assumed was harmless, so the vision encoder now runs on the CPU. I also avoided a known flash-attention crash on Pascal for this model architecture, and capped concurrent requests so memory was not reserved for users that would never exist.",
+      "The stack runs as systemd and Docker services and recovers automatically after a reboot. Generation runs at around 26 tokens per second. The core build is complete and I'm now fine-tuning it, mainly looking for a stronger reviewer model: live testing showed the current one approving hallucinated APIs it should have caught, a useful reminder that a model reviewing another model is no substitute for tests.",
+    ],
+    tags:   ['Local AI', 'llama.cpp', 'Linux', 'GenAI'],
+    status: 'in-progress',
+    year:   '2026',
+    modalImages: [
+      { src: './public/images/AI-Server-1.jpg', alt: 'Local AI Server - open PC case showing two GTX 1060 graphics cards', className: 'modal-image--medium' },
+    ],
+  },
+
+  {
+    id:        'washi-scrapbook-planner',
+    title:     'Washi - Scrapbook Layout Planner',
+    shortDesc: 'A native macOS app for planning physical scrapbook pages on a true-to-scale canvas before committing scissors to paper.',
+    fullDesc: [
+      "Washi is a planning tool rather than a photo editor. You arrange photos, text, decorative borders and stickers on a canvas that matches real scrapbook page dimensions, across single pages and two-page spreads, then export a high-resolution PDF to use as a printing and cutting reference.",
+      "Elements can be moved, resized, rotated and grouped, with a decorative border system (squiggly, scalloped and zigzag), a built-in sticker library, full undo and redo, and autosave with crash recovery. Projects are saved in a custom self-contained .washi file format, with photos de-duplicated by SHA-256 hash.",
+      "The design decision I'm happiest with is the strip of page previews below the main canvas. Rather than generating separate thumbnail images, each preview is the real page view drawn at a smaller scale, so it always matches the actual page and updates live as you edit. Getting it right took some time: two-page spreads have to stay paired and move together, and drag-to-reorder initially did nothing at all, because the thumbnails were buttons that swallowed the mouse press before a drag could start, plus an off-by-one error meant dragging a page one slot forward silently had no effect. Fixing those, adding a marker to show where a dragged page would land, and keeping the add-page button visible however many pages the album has, made it feel like a real part of the app rather than an afterthought.",
+      "It was built in Swift and SwiftUI over 16 milestones plus a dedicated edge-case hardening pass, and is fully assembled and code-signed. You can view the repo on <u><a href=\"https://github.com/AakashDadhich/washi-scrapbook-planner\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a></u>.",
+    ],
+    tags:   ['Swift', 'GenAI', 'macOS'],
+    status: 'complete',
+    year:   '2026',
+    modalImages: [
+      { src: './public/images/Washi-1.jpg', alt: 'Washi - a two-page scrapbook spread with photos being arranged on the canvas', className: 'modal-image--full' },
+    ],
+  },
+
+  {
+    id:        'layout-collage-app',
+    title:     'Layout - Photo Collage App',
+    shortDesc: "A native macOS photo collage app inspired by Instagram Stories' Layout feature, scaled up for the desktop.",
+    fullDesc: [
+      "I wanted the simplicity of Instagram's Layout feature as an offline application on my computer. This was mostly to serve as a process for cropping images into a desired size, which I could then import into Washi (see my other project) for accurate scaling of a scrapbook.",
+      "Drop in photos, pick from a catalogue of over 24 grid layouts, adjust the crop and zoom of each cell, tune borders, gutters, corner radius and background colour, then export a JPEG.",
+      "All editing is non-destructive: source files are never modified, and each photo's crop is preserved as you switch layouts, aspect ratios or rotate the grid. You can drag cell dividers, swap and shuffle photos, and undo anything, since every change goes through a single path that records history.",
+      "The on-screen preview and the exported image share one renderer, so what you see is exactly what you get. Building it gave me real experience with SwiftUI and AppKit interop and non-destructive image editing. You can view the repo on <u><a href=\"https://github.com/AakashDadhich/layout-collage-app\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a></u>.",
+    ],
+    tags:   ['Swift', 'GenAI', 'macOS'],
+    status: 'complete',
+    year:   '2026',
+    modalImages: [
+      { src: './public/images/Layout-1.jpg', alt: 'Layout - three photos arranged in a grid layout, with the layout picker below', className: 'modal-image--full' },
+    ],
+  },
+
+  {
+    id:        'wakana',
+    title:     'Wakana - Kana Study App',
+    shortDesc: 'A native macOS app for learning hiragana and katakana through active recall, where you type every answer instead of picking from options.',
+    fullDesc: [
+      "I'm learning Japanese in my spare time, and wanted to build a mini app to help with the basics, since nothing catered for my specific use-case.",
+      "Most kana apps test recognition: they show a character and offer multiple-choice answers. Recognising the right answer in a list is much easier than recalling it, so I kept plateauing. Wakana (若菜) forces recall instead. You see a kana and type its reading, or see a reading and type the kana using the real macOS Japanese input method, so practice mirrors how you'd actually type Japanese.",
+      "It's built in Swift and SwiftUI with a full reference chart, configurable practice sessions (in order, randomised or endless) and session-only scoring. It's keyboard-first, so a whole session can run without touching the mouse, and answer checking accepts the common alternative spellings such as shi/si and tsu/tu.",
+      "Getting the reference chart right took real work. Columns are grouped into the traditional gojūon layout by detecting vowel resets, which keeps irregular readings like shi, chi and tsu in the correct column, and voiced variants line up under their base columns just like a printed chart.",
+      "I built it without a full Xcode install, which shaped the project: it's a Swift Package with a Makefile, and because the standard test runner needs Xcode, I wrote a self-check mode that runs the test suite from the command line. That setup also surfaced a subtle bug where the app, launched as a bare executable, never became a foreground app and silently received no keyboard input. You can view the repo on <u><a href=\"https://github.com/AakashDadhich/wakana-study-app\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a></u>.",
+    ],
+    tags:   ['Swift', 'GenAI', 'macOS', 'Japanese'],
+    status: 'in-progress',
+    year:   '2026',
+    modalImages: [
+      { src: './public/images/Wakana-1.jpg', alt: 'Wakana - hiragana and katakana reference charts in gojuon layout', className: 'modal-image--full' },
+      { src: './public/images/Wakana-2.jpg', alt: 'Wakana - practice screen with a correct romaji answer', className: 'modal-image--full' },
+    ],
+  },
+
+  {
     id:        'recon-discord-bot',
     title:     'Recon RSS Discord Bot',
     shortDesc: 'A self-hosted Discord bot that monitors RSS feeds across multiple channels and posts new articles as formatted embeds.',

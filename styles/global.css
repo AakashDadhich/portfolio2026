@@ -1023,6 +1023,15 @@ h4 { font-size: 1rem; font-weight: 600; }
   width: 70%;
 }
 
+/* Narrow images - very tall screenshots such as side panes */
+.modal-image--narrow {
+  width: 40%;
+}
+
+@media (max-width: 600px) {
+  .modal-image--narrow { width: 70%; }
+}
+
 /* ─── Certifications ────────────────────────────────────────────────────── */
 .certs-grid {
   display: grid;
