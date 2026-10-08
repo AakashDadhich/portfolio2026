@@ -1,2 +1,7 @@
 # Ignore macOS system files
 .DS_Store
+
+# Local-only files
+.claude/
+CLAUDE.md
+TO-ADD-wakana-project.md
