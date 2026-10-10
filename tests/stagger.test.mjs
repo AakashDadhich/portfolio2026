@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { staggerDelay, STAGGER_MAX_MS, STAGGER_STEP_MS } from '../js/stagger.js';
+import { staggerDelay, STAGGER_MAX_MS, STAGGER_STEP_MS, SEQ_STEP_MS, SEQ_MAX_MS, seqDelay } from '../js/stagger.js';
 
 test('first element in a batch has no delay', () => {
   assert.equal(staggerDelay(0), 0);
@@ -22,4 +22,10 @@ test('negative positions are treated as zero', () => {
 
 test('delay plus 0.35s transition stays under 0.5s', () => {
   assert.ok(STAGGER_MAX_MS + 350 < 500);
+});
+
+test('seqDelay steps tightly and caps for long cards', () => {
+  assert.equal(seqDelay(0), 0);
+  assert.equal(seqDelay(2), SEQ_STEP_MS * 2);
+  assert.equal(seqDelay(500), SEQ_MAX_MS);
 });

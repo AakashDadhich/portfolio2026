@@ -12,7 +12,7 @@
  */
 
 import { experience } from '../content/experience.js';
-import { STAGGER_STEP_MS } from '../js/stagger.js';
+import { seqDelay } from '../js/stagger.js';
 
 const root = document.getElementById('experience-root');
 if (!root) throw new Error('Missing #experience-root element');
@@ -105,7 +105,7 @@ function setupExperienceObserver() {
  * Cascades through all [data-seq] children within a company card,
  * adding .is-visible with a staggered delay between each item.
  *
- * Each item is delayed by STAGGER_STEP_MS, matching the card animations.
+ * Each item is delayed by seqDelay(), a tighter stagger than the cards so long cards stay quick.
  *
  * @param {HTMLElement} card
  */
@@ -113,7 +113,7 @@ function animateSequentially(card) {
   const items = Array.from(card.querySelectorAll('[data-seq]'));
 
   items.forEach((item, index) => {
-    const delay = index * STAGGER_STEP_MS;
+    const delay = seqDelay(index);
 
     setTimeout(() => {
       item.classList.add('is-visible');
