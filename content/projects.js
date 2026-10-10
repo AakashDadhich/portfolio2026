@@ -32,7 +32,7 @@ export const projects = [
       "The agent also handles the chores: processing an inbox of clipped articles into draft cards, keeping indexes and links current, and running a lint pass for broken links, orphaned cards, invalid frontmatter and stale content.",
       "Since this is being actively built out, I built a Claude Mod to be able to actively trace which knowledge cards were being hit, and if it was following the intended path or doing something strange. I also gave it the ability to view the card's contents and to launch it in Obsidian to quickly edit the card if required.",
     ],
-    tags:   ['GenAI', 'Wiki', 'Obsidian', 'Git'],
+    tags:   ['Built with GenAI', 'Wiki', 'Obsidian', 'Git'],
     status: 'in-progress',
     year:   '2026',
     modalImages: [
@@ -50,7 +50,7 @@ export const projects = [
       "Most of the work was fitting everything into 6GB of VRAM on older Pascal GPUs. I built llama.cpp from source against CUDA 12, since newer CUDA releases dropped support for these cards, and planned a VRAM budget for weights, the vision encoder, context and compute buffers. Testing on real hardware changed several of those plans. Uploading a real image crashed the server, which turned out to be a startup warning I had wrongly assumed was harmless, so the vision encoder now runs on the CPU. I also avoided a known flash-attention crash on Pascal for this model architecture, and capped concurrent requests so memory was not reserved for users that would never exist.",
       "The stack runs as systemd and Docker services and recovers automatically after a reboot. Generation runs at around 26 tokens per second. The core build is complete and I'm now fine-tuning it, mainly looking for a stronger reviewer model: live testing showed the current one approving hallucinated APIs it should have caught, a useful reminder that a model reviewing another model is no substitute for tests.",
     ],
-    tags:   ['Local AI', 'llama.cpp', 'Linux', 'GenAI'],
+    tags:   ['Local AI', 'llama.cpp', 'Linux', 'Built with GenAI'],
     status: 'in-progress',
     year:   '2026',
     modalImages: [
@@ -68,7 +68,7 @@ export const projects = [
       "The design decision I'm happiest with is the strip of page previews below the main canvas. Rather than generating separate thumbnail images, each preview is the real page view drawn at a smaller scale, so it always matches the actual page and updates live as you edit. Getting it right took some time: two-page spreads have to stay paired and move together, and drag-to-reorder initially did nothing at all, because the thumbnails were buttons that swallowed the mouse press before a drag could start, plus an off-by-one error meant dragging a page one slot forward silently had no effect. Fixing those, adding a marker to show where a dragged page would land, and keeping the add-page button visible however many pages the album has, made it feel like a real part of the app rather than an afterthought.",
       "It was built in Swift and SwiftUI over 16 milestones plus a dedicated edge-case hardening pass, and is fully assembled and code-signed. You can view the repo on <u><a href=\"https://github.com/AakashDadhich/washi-scrapbook-planner\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a></u>.",
     ],
-    tags:   ['Swift', 'GenAI', 'macOS'],
+    tags:   ['Swift', 'Built with GenAI', 'macOS'],
     status: 'complete',
     year:   '2026',
     modalImages: [
@@ -86,7 +86,7 @@ export const projects = [
       "All editing is non-destructive: source files are never modified, and each photo's crop is preserved as you switch layouts, aspect ratios or rotate the grid. You can drag cell dividers, swap and shuffle photos, and undo anything, since every change goes through a single path that records history.",
       "The on-screen preview and the exported image share one renderer, so what you see is exactly what you get. Building it gave me real experience with SwiftUI and AppKit interop and non-destructive image editing. You can view the repo on <u><a href=\"https://github.com/AakashDadhich/layout-collage-app\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a></u>.",
     ],
-    tags:   ['Swift', 'GenAI', 'macOS'],
+    tags:   ['Swift', 'Built with GenAI', 'macOS'],
     status: 'complete',
     year:   '2026',
     modalImages: [
@@ -105,7 +105,7 @@ export const projects = [
       "Getting the reference chart right took real work. Columns are grouped into the traditional gojūon layout by detecting vowel resets, which keeps irregular readings like shi, chi and tsu in the correct column, and voiced variants line up under their base columns just like a printed chart.",
       "I built it without a full Xcode install, which shaped the project: it's a Swift Package with a Makefile, and because the standard test runner needs Xcode, I wrote a self-check mode that runs the test suite from the command line. That setup also surfaced a subtle bug where the app, launched as a bare executable, never became a foreground app and silently received no keyboard input. You can view the repo on <u><a href=\"https://github.com/AakashDadhich/wakana-study-app\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a></u>.",
     ],
-    tags:   ['Swift', 'GenAI', 'macOS', 'Japanese'],
+    tags:   ['Swift', 'Built with GenAI', 'macOS', 'Japanese'],
     status: 'in-progress',
     year:   '2026',
     modalImages: [
@@ -125,7 +125,7 @@ export const projects = [
       "Since I was already getting notified about new posts, I wanted to get notified about upcoming cybersecurity meetups in London. However, most sites don't offer native RSS feeds - so I'd need to create my own. To solve this, I installed a self-hosted RSS Bridge instance on my server. Claude helped me write two custom bridges: one for DC4420, which parses their iCal feed into a standard RSS feed, and one for IOActive Events, which scrapes their events page since they don't publish a feed at all. This lets me subscribe to both within Recon and get a notification each time a new event is posted, without having to check each site manually.",
       "The bot runs as a systemd service on a Hetzner VPS, restarting automatically on failure. Feeds auto-pause after three consecutive empty polls, with a per-feed opt-out flag for legitimately quiet sources. The full command set covers adding, removing, and renaming feeds, pausing and resuming feeds, triggering manual polls, and pulling a live status summary - no SSH required for day-to-day use. You can view the repo on <u><a href=\"https://github.com/AakashDadhich/recon-discord-bot\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a></u>.",
     ],
-    tags:   ['Python', 'Discord.py', 'GenAI'],
+    tags:   ['Python', 'Discord.py', 'Built with GenAI'],
     status: 'complete',
     year:   '2026',
     modalImages: [
@@ -142,7 +142,7 @@ export const projects = [
       'With generative AI becoming increasingly prevalent, both as a tool and as something security teams need to think carefully about, I felt it was important to develop a hands-on understanding of how these systems work. As a security engineer, building better guardrails and controls around AI tooling in a professional context requires more than a theoretical understanding; I need to understand how my organisation\'s engineers are using it, what their frustrations are, and strike a balance between usability and security.',
       'This site was designed and built entirely through a conversation with Claude (Anthropic\'s AI assistant), from the initial architecture all the way through to the animations and responsive layout. The content itself, the project descriptions, experience entries, and bio, is my own wording, drawn from previous portfolio sites I\'d written from scratch and my CV. It was more iterative than I expected: describe what I wanted, review the output, push back where it missed the mark, repeat. The result is a modular, file-based static site hosted on GitHub Pages. You can view the repo on <u><a href="https://github.com/AakashDadhich/portfolio2026" target="_blank" rel="noopener noreferrer">GitHub</a></u>.',
     ],
-    tags:   ['GenAI', 'GitHub Pages', 'Showcase'],
+    tags:   ['Built with GenAI', 'GitHub Pages', 'Showcase'],
     status: 'complete',
     year:   '2026',
   },
