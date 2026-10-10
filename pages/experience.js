@@ -12,6 +12,7 @@
  */
 
 import { experience } from '../content/experience.js';
+import { STAGGER_STEP_MS } from '../js/stagger.js';
 
 const root = document.getElementById('experience-root');
 if (!root) throw new Error('Missing #experience-root element');
