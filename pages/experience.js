@@ -12,6 +12,7 @@
  */
 
 import { experience } from '../content/experience.js';
+import { seqDelay } from '../js/stagger.js';
 
 const root = document.getElementById('experience-root');
 if (!root) throw new Error('Missing #experience-root element');
@@ -104,23 +105,15 @@ function setupExperienceObserver() {
  * Cascades through all [data-seq] children within a company card,
  * adding .is-visible with a staggered delay between each item.
  *
- * Timing feels like a progressive reveal / AI text appearance:
- *   - Company header items:    60ms apart
- *   - Role titles & dates:     80ms apart
- *   - Bullet points:           55ms apart
+ * Each item is delayed by seqDelay(), a tighter stagger than the cards so long cards stay quick.
  *
  * @param {HTMLElement} card
  */
 function animateSequentially(card) {
   const items = Array.from(card.querySelectorAll('[data-seq]'));
-  const BASE_DELAY = 60; // ms between each item
 
   items.forEach((item, index) => {
-    // Bullet points get a tighter delay to feel like text streaming
-    const isBullet = item.classList.contains('role-bullet');
-    const delay = isBullet
-      ? (index * 45)       // bullets: 45ms each
-      : (index * BASE_DELAY); // headers/titles: 60ms each
+    const delay = seqDelay(index);
 
     setTimeout(() => {
       item.classList.add('is-visible');
