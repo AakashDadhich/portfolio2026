@@ -67,7 +67,7 @@ function renderCard(project, index) {
     <div class="project-card"
          data-project-id="${project.id}"
          data-animate="fade-up"
-         data-animate-delay="${index * 70}"
+         data-animate-stagger
          role="button"
          tabindex="0"
          aria-label="View details for ${project.title}">

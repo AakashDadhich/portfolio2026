@@ -16,8 +16,17 @@
  *  Supported values:     fade-up | fade-in | fade-left
  *  Optional delay:       <div data-animate="fade-up" data-animate-delay="200">
  *
+ *  Batch stagger:        <div data-animate="fade-up" data-animate-stagger>
+ *    Delay depends on the element's position among those entering the
+ *    viewport together (capped), never on its position in the page.
+ *
  * Called by js/init.js on every page load.
  */
+
+import { staggerDelay } from './stagger.js';
+
+const prefersReducedMotion = () =>
+  window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
 
 /**
  * Initialise the scroll animation observer.
@@ -34,11 +43,14 @@ export function initAnimations() {
 
   const observer = new IntersectionObserver(
     (entries, obs) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
+      const visible = entries.filter(entry => entry.isIntersecting);
+      const reduced = prefersReducedMotion();
 
-        const el    = entry.target;
-        const delay = parseInt(el.dataset.animateDelay || '0', 10);
+      visible.forEach((entry, position) => {
+        const el = entry.target;
+        let delay = parseInt(el.dataset.animateDelay || '0', 10);
+        if (el.hasAttribute('data-animate-stagger')) delay = staggerDelay(position);
+        if (reduced) delay = 0;
 
         setTimeout(() => {
           el.classList.add('is-visible');

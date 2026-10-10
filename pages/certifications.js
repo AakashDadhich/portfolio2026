@@ -54,7 +54,7 @@ function renderCert(cert, index) {
   return `
     <div class="cert-card${expired ? ' cert-card--expired' : ''}"
          data-animate="fade-up"
-         data-animate-delay="${index * 60}">
+         data-animate-stagger>
       <p class="cert-provider">${cert.provider}</p>
       <h3 class="cert-name">${cert.name}</h3>
       <div class="cert-footer">
