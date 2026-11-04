@@ -25,6 +25,10 @@ test('image without a class defaults to full width', () => {
   assert.match(html, /modal-image--full/);
 });
 
+test('figure wraps raw markup such as an inline SVG', () => {
+  assert.equal(renderDescBlock({ figure: '<svg></svg>' }), '<figure class="modal-figure"><svg></svg></figure>');
+});
+
 test('unknown block renders nothing', () => {
   assert.equal(renderDescBlock({}), '');
 });

@@ -13,8 +13,9 @@
  *   shortDesc      - One-line summary (shown on card front)
  *   fullDesc       - Array of blocks shown in the expanded modal. Each block is
  *                    a paragraph string (HTML allowed), { list: [...] } for a
- *                    bullet list, or { image: { src, alt, className } } for an
- *                    image placed inline between paragraphs.
+ *                    bullet list, { image: { src, alt, className } } for an
+ *                    image placed inline between paragraphs, or { figure: markup }
+ *                    for raw markup such as a themed inline SVG diagram.
  *   tags           - Array of technology / topic tags
  *   status         - "complete" | "in-progress" | "archived"
  *   year           - Year the project was built / last updated
@@ -22,6 +23,8 @@
  *                    after the description. Only visible when a card is expanded.
  *                    Paths are relative to the site root (e.g. ./public/images/x.png)
  */
+
+import { factoryDiagram } from './diagrams/secure-software-factory.js';
 
 export const projects = [
   {
@@ -31,7 +34,7 @@ export const projects = [
     fullDesc: [
       "As a Professional Vibe Coder Hobbyist™, I'm often building small bits of software for my own use, but that's no excuse for shipping insecure projects. With AI getting better at both writing and breaking code, the security industry is being flooded with new vulnerabilities. I wanted a system that baked security into every step of the software development lifecycle (SDLC), and so the Secure Software Factory was born.",
       "I designed a pipeline on GitHub Actions that starts with spec-driven development, then wargamed it with Claude to sense-check my thinking. After some back and forth, I settled on this design:",
-      { image: { src: './public/images/Factory-1.png', alt: 'Secure Software Factory - pipeline flow from spec to gate, with failed gates looping back to code', className: 'modal-image--full' } },
+      { figure: factoryDiagram },
       "At each step, security is baked in:",
       { list: [
         "<strong>Plan:</strong> the spec is broken into risk-rated tasks, mapped to OWASP ASVS with an abuse case for every feature.",

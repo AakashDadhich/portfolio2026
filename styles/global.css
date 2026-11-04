@@ -29,6 +29,7 @@
   --accent-dim:  rgba(61, 220, 132, 0.10);
   --accent-glow: rgba(61, 220, 132, 0.22);
   --accent-dark: #1a6b3c;
+  --danger:      #ff6b6b;
 
   /* Typography */
   --text:        #dce8f5;
@@ -69,6 +70,7 @@
   --accent-dim:  rgba(26, 143, 66, 0.10);
   --accent-glow: rgba(26, 143, 66, 0.20);
   --accent-dark: #0e5c2a;
+  --danger:      #c62828;
 
   --text:        #0f1923;
   --text-sec:    #3a5570;
@@ -1004,6 +1006,85 @@ h4 { font-size: 1rem; font-weight: 600; }
   margin-left: auto;
   margin-right: auto;
 }
+
+/* Inline SVG diagrams in modals - themed via custom properties, so they follow dark/light mode */
+.modal-figure {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 12px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-sub);
+  border-radius: var(--radius);
+  overflow-x: auto;
+}
+
+.flow-diagram {
+  display: block;
+  width: 100%;
+  min-width: 560px;
+  height: auto;
+}
+
+.flow-node rect,
+.flow-node polygon {
+  fill: var(--bg-elevated);
+  stroke: var(--text-muted);
+  stroke-width: 1.25;
+}
+
+.flow-node--key rect {
+  fill: var(--accent-dim);
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+
+.flow-node-title,
+.flow-node-sub {
+  text-anchor: middle;
+}
+
+.flow-node-title {
+  font-family: var(--font-head);
+  font-size: 17px;
+  font-weight: 500;
+  fill: var(--text);
+}
+
+.flow-node--key .flow-node-title { font-weight: 700; }
+
+.flow-node-sub {
+  font-family: var(--font-body);
+  font-size: 14px;
+  fill: var(--text-sec);
+}
+
+.flow-edges line {
+  stroke: var(--text-muted);
+  stroke-width: 1.5;
+}
+
+.flow-arrowhead       { fill: var(--text-muted); }
+.flow-arrowhead--fail { fill: var(--danger); }
+.flow-arrowhead--loop { fill: var(--accent); }
+
+.flow-edge--fail,
+.flow-edge--loop {
+  fill: none;
+  stroke-width: 1.5;
+  stroke-dasharray: 5 4;
+}
+
+.flow-edge--fail { stroke: var(--danger); }
+.flow-edge--loop { stroke: var(--accent); }
+
+.flow-label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  fill: var(--text-sec);
+}
+
+.flow-label--fail { fill: var(--danger); }
+.flow-label--loop { fill: var(--accent); }
 
 /* Images shown in the expanded modal only - never on card fronts */
 .modal-images {
