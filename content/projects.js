@@ -28,6 +28,24 @@ import { factoryDiagram } from './diagrams/secure-software-factory.js';
 
 export const projects = [
   {
+    id:        'bedside-dashboard',
+    title:     'Bedside Dashboard',
+    shortDesc: 'A cheap Wi-Fi weather clock turned into a bedside screen for train departures, Elizabeth line status, weather and Claude usage.',
+    fullDesc: [
+      "I picked up a cheap \"Smart Weather Clock\" with a tiny 240x240 screen, and wanted it to show what I actually check before leaving the house: my next trains, whether the Elizabeth line is behaving, the weather, and how much of my Claude usage is left. Rather than flashing custom firmware, a Python script on my server draws the whole screen as an image and pushes it to the clock over Wi-Fi every minute.",
+      "I set two ground rules before starting: no firmware flashing, and nothing sent to the clock's update endpoint. The clock turned out to run older firmware than expected, so I mapped its API with read-only requests first, then took a full backup of its photos, settings and pages and tested a restore before writing anything. A security review of my own probe script caught a path traversal bug that slipped past its endpoint blocklist, which was fixed.",
+      "Each data source is its own module. The TfL calls validate the stop ID and refuse redirects, so the API key can't be leaked to another host, and logs blank out secrets. Weather is cached for 15 minutes and Claude usage for 5, and a lock file stops a second copy of the script from fighting the first.",
+      "My first design looked plain, so I explored three concepts in Claude Design and went with a departure-board style, keeping its usage progress bars. I added a low, current and high temperature line and an hourly forecast graph, with colour-coded status bands that read at a glance from across the room. After living with it for a night, I also added a dim, all-red night screen from 23:00 to 06:00 with a bigger date and weather line, and the script drops the brightness rather than relying on the clock's own night mode. The firmware always draws its IP address on screen and that can't be hidden, so the layout works around it.",
+    ],
+    tags:   ['Built with GenAI', 'Python', 'Hardware', 'Home Automation'],
+    status: 'in-progress',
+    year:   '2026',
+    modalImages: [
+      { src: './public/images/Bedside-1.jpg', alt: 'Bedside Dashboard - the clock showing the time, weather graph, train departures and Claude usage', className: 'modal-image--medium' },
+    ],
+  },
+
+  {
     id:        'secure-software-factory',
     title:     'Secure Software Factory',
     shortDesc: 'A reusable CI pipeline that takes my hobby apps from a written spec to checked code, with security baked into every stage.',
