@@ -11,6 +11,7 @@
 
 import { projects } from '../content/projects.js';
 import { observeNewElements } from '../js/animations.js';
+import { renderDescBlock } from '../js/modal-desc.js';
 
 const root = document.getElementById('projects-root');
 if (!root) throw new Error('Missing #projects-root element');
@@ -101,7 +102,7 @@ function openModal(project) {
     .join('');
 
   const paragraphs = project.fullDesc
-    .map(p => `<p>${p}</p>`)
+    .map(renderDescBlock)
     .join('');
 
   // Render images only if the project has a modalImages array defined
