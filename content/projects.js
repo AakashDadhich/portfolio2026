@@ -11,7 +11,11 @@
  *   id             - Unique string identifier (used for DOM targeting)
  *   title          - Project name (shown on card front)
  *   shortDesc      - One-line summary (shown on card front)
- *   fullDesc       - Array of paragraph strings (shown in expanded modal)
+ *   fullDesc       - Array of blocks shown in the expanded modal. Each block is
+ *                    a paragraph string (HTML allowed), { list: [...] } for a
+ *                    bullet list, { image: { src, alt, className } } for an
+ *                    image placed inline between paragraphs, or { figure: markup }
+ *                    for raw markup such as a themed inline SVG diagram.
  *   tags           - Array of technology / topic tags
  *   status         - "complete" | "in-progress" | "archived"
  *   year           - Year the project was built / last updated
@@ -20,7 +24,37 @@
  *                    Paths are relative to the site root (e.g. ./public/images/x.png)
  */
 
+import { factoryDiagram } from './diagrams/secure-software-factory.js';
+
 export const projects = [
+  {
+    id:        'secure-software-factory',
+    title:     'Secure Software Factory',
+    shortDesc: 'A reusable CI pipeline that takes my hobby apps from a written spec to checked code, with security baked into every stage.',
+    fullDesc: [
+      "As a Professional Vibe Coder Hobbyist™, I'm often building small bits of software for my own use, but that's no excuse for shipping insecure projects. With AI getting better at both writing and breaking code, the security industry is being flooded with new vulnerabilities. I wanted a system that baked security into every step of the software development lifecycle (SDLC), and so the Secure Software Factory was born.",
+      "I designed a pipeline on GitHub Actions that starts with spec-driven development, then wargamed it with Claude to sense-check my thinking. After some back and forth, I settled on this design:",
+      { figure: factoryDiagram },
+      "At each step, security is baked in:",
+      { list: [
+        "<strong>Plan:</strong> the spec is broken into risk-rated tasks, mapped to OWASP ASVS with an abuse case for every feature.",
+        "<strong>Threat model:</strong> the design is threat modelled with STRIDE (plus LINDDUN when personal data is involved), written as pytm code.",
+        "<strong>Generate code:</strong> agents write code against secure-by-default rules, with Semgrep and Gitleaks hooks ran before every commit.",
+        "<strong>Security review:</strong> a separate AI agent reviews the diff, so the code isn't marking its own homework.",
+        "<strong>SAST:</strong> CodeQL, Semgrep and language-dependent linters analyse the source.",
+        "<strong>Deps and secrets:</strong> OSV-Scanner and Grype check every dependency against an SBOM, and Gitleaks hunts for leaked secrets.",
+        "<strong>DAST:</strong> OWASP ZAP attacks a live build of web apps.",
+        "<strong>Gate:</strong> findings are merged and checked against policy, and it fails closed, so a skipped or broken stage counts as critical. A failed gate loops back to the code up to twice before asking me to step in.",
+        "<strong>Ship and store:</strong> the plan, threat model, SBOM and findings are saved, so the next change starts from the record rather than from scratch.",
+      ] },
+      "During development, I built a small test project for each type of app I typically make: a web app, a macOS app, and soon an iOS app. To prove it actually works, I also built deliberately vulnerable web and iOS apps, and no release of the factory was to go out unless every planted flaw was caught. It found them all, from SQL injection, XSS and command injection to a hardcoded API key, an outdated lodash, disabled App Transport Security and MD5-hashed passwords, while the clean test apps passed without noise. Building those tests even exposed bugs in the factory itself, which were each fixed with a test of their own. A full write-up of the case study is available <u><a href=\"https://github.com/AakashDadhich/security-factory/blob/main/docs/portfolio/case-study.md\" target=\"_blank\" rel=\"noopener noreferrer\">here</a></u>.",
+      "It runs for nothing beyond my existing Claude Pro subscription, and every AI call goes through a single adapter, so the model behind it can be swapped without touching the pipeline. It's still evolving, with dynamic testing for Apple platforms and a local model adapter next on the list, but every hobby project I build now gets the same security scrutiny on every change, whether I remember to ask for it or not. You can view the repo on <u><a href=\"https://github.com/AakashDadhich/security-factory\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a></u>.",
+    ],
+    tags:   ['Built with GenAI', 'Systems Design', 'GitHub Actions', 'DevSecOps'],
+    status: 'in-progress',
+    year:   '2026',
+  },
+
   {
     id:        'personal-knowledge-base',
     title:     'Personal Knowledge Base',
