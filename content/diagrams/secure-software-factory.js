@@ -16,7 +16,7 @@ export const factoryDiagram = `
   <g class="flow-edges">
     <line x1="276" y1="64" x2="296" y2="64" marker-end="url(#fd-arrow)" />
     <line x1="486" y1="64" x2="505" y2="64" marker-end="url(#fd-arrow)" />
-    <line x1="695" y1="64" x2="685" y2="64" />
+    <line x1="695" y1="64" x2="714" y2="64" marker-end="url(#fd-arrow)" />
     <line x1="810" y1="100" x2="810" y2="156" marker-end="url(#fd-arrow)" />
     <line x1="810" y1="230" x2="810" y2="300" marker-end="url(#fd-arrow)" />
     <line x1="716" y1="338" x2="697" y2="338" marker-end="url(#fd-arrow)" />
@@ -26,8 +26,8 @@ export const factoryDiagram = `
     <line x1="276" y1="495" x2="296" y2="495" marker-end="url(#fd-arrow)" />
   </g>
 
-  <path class="flow-edge--fail" d="M182,294 V194 H685 V64 H714" marker-end="url(#fd-arrow-fail)" />
-  <text class="flow-label flow-label--fail" x="248" y="184">fail: fix and re-scan</text>
+  <path class="flow-edge--fail" d="M182,294 V130 H740 V102" marker-end="url(#fd-arrow-fail)" />
+  <text class="flow-label flow-label--fail" x="248" y="122">fail: fix and re-scan</text>
 
   <path class="flow-edge--loop" d="M392,531 V570 H52 V64 H86" marker-end="url(#fd-arrow-loop)" />
   <text class="flow-label flow-label--loop" x="406" y="558">next change: re-enter with the saved record</text>
