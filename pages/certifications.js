@@ -8,7 +8,8 @@
  */
 
 import { certifications } from '../content/certifications.js';
-import { isCertExpired, formatCertDate } from '../utils/dates.js';
+import { isCertExpired } from '../utils/dates.js';
+import { renderCert } from '../utils/cert-card.js';
 import { observeNewElements } from '../js/animations.js';
 
 const root = document.getElementById('certs-root');
@@ -41,36 +42,3 @@ if (certifications.length === 0) {
 
 // Trigger animations now that content is in the DOM
 observeNewElements();
-
-// ─────────────────────────────────────────────────────────────────────────
-// Cert card renderer
-// ─────────────────────────────────────────────────────────────────────────
-
-function renderCert(cert, index) {
-  const expired  = isCertExpired(cert.expires);
-  const dateStr  = formatCertDate(cert.date);
-  const expStr   = cert.expires ? formatCertDate(cert.expires) : null;
-
-  return `
-    <div class="cert-card${expired ? ' cert-card--expired' : ''}"
-         data-animate="fade-up"
-         data-animate-stagger>
-      <p class="cert-provider">${cert.provider}</p>
-      <h3 class="cert-name">${cert.name}</h3>
-      <div class="cert-footer">
-        <div class="cert-dates">
-          <span class="cert-date">Achieved: ${dateStr}</span>
-          ${expStr
-            ? `<span class="cert-date">Expires: ${expStr}</span>`
-            : `<span class="cert-date">Does not expire</span>`
-          }
-        </div>
-        <div class="cert-footer-bottom">
-          <span class="cert-status ${expired ? 'cert-status--expired' : 'cert-status--active'}">
-            ${expired ? 'Expired' : 'Active'}
-          </span>
-        </div>
-      </div>
-    </div>
-  `;
-}
